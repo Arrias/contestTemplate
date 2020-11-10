@@ -1,0 +1,44 @@
+#!/bin/bash
+s="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+if [[ "$1" == "clean" ]]; then
+  for i in $s; do
+    if [ -e "$i" ]; then
+      rm -R "$i"
+    fi
+  done
+  if [ -e "cmake-build-debug" ]; then
+    rm -R "cmake-build-debug"
+  fi
+  if [ -e "CMakeLists.txt" ]; then
+    rm -R "CMakeLists.txt"
+  fi
+  exit 0
+fi
+
+x=$1
+
+if (("$x" > "26" || "$x" < "1")); then
+  echo "bad cnt"
+  exit 0
+fi
+
+t=0
+for i in $s; do
+  mkdir "$i"
+  cd "$i"
+  touch "input.txt"
+  cp "../src/gen.cpp" "../$i"
+  cp ../src/checker.cpp "../$i"
+  cp ../src/smart.cpp "../$i"
+  cp ../src/stupid.cpp "../$i"
+  cp ../src/cstress.sh "../$i"
+  cp ../src/stress.sh "../$i"
+  cd ..
+  t=$((t + 1))
+  if (("$t" == "$x")); then
+    break
+  fi
+done
+
+cp ./src/CMakeLists.txt ./
