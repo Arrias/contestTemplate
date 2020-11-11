@@ -1,3 +1,0 @@
-echo "Compiling smart..."
-g++ smart.cpp -o _stressSource/smart
-time _stressSource/smart < input.txt

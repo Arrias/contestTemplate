@@ -37,8 +37,9 @@ for i in $s; do
   cp ../src/checker.cpp "../$i"
   cp ../src/smart.cpp "../$i"
   cp ../src/stupid.cpp "../$i"
-  cp ../src/cstress.sh "../$i"
-  cp ../src/stress.sh "../$i"
+  cp ../src/cstress "../$i"
+  cp ../src/stress "../$i"
+  cp ../src/timecheck "../$i"
   cd ..
   echo "add_executable(${i}_smart $i/smart.cpp)" >> CMakeLists.txt
   echo "add_executable(${i}_gen $i/gen.cpp)" >> CMakeLists.txt
