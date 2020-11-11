@@ -23,6 +23,11 @@ if (("$x" > "26" || "$x" < "1")); then
   exit 0
 fi
 
+touch CMakeLists.txt
+echo "cmake_minimum_required(VERSION 3.13)" >> CMakeLists.txt
+echo "project(cf)" >> CMakeLists.txt
+echo "set(CMAKE_CXX_STANDARD 14)" >> CMakeLists.txt
+
 t=0
 for i in $s; do
   mkdir "$i"
@@ -35,10 +40,13 @@ for i in $s; do
   cp ../src/cstress.sh "../$i"
   cp ../src/stress.sh "../$i"
   cd ..
+  echo "add_executable(${i}_smart $i/smart.cpp)" >> CMakeLists.txt
+  echo "add_executable(${i}_gen $i/gen.cpp)" >> CMakeLists.txt
+  echo "add_executable(${i}_stupid $i/stupid.cpp)" >> CMakeLists.txt
+  echo "add_executable(${i}_checker $i/checker.cpp)" >> CMakeLists.txt
+
   t=$((t + 1))
   if (("$t" == "$x")); then
     break
   fi
 done
-
-cp ./src/CMakeLists.txt ./
