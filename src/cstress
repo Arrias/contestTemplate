@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-mkdir _stressSource 
+mkdir -p _stressSource
 
 echo "Compiling smart..." 
 g++ smart.cpp -o _stressSource/smart 
@@ -17,7 +17,8 @@ for ((;;)) do
   ./gen > temp.txt 
   cat temp.txt
   echo ""
-  smartRes=`./smart < temp.txt` 
+  smartRes=`./smart < temp.txt`
+  echo "$smartRes" >> temp.txt
   checkRes=`./checker < temp.txt` 
   echo -e "Smart res:\n$smartRes\nCheck res:\n$checkRes\n"  
   if [ "$checkRes" != "1" ]; then 

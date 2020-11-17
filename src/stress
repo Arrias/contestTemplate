@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-mkdir _stressSource 
+mkdir -p _stressSource
 
 echo "Compiling smart..."  
 g++ smart.cpp -o _stressSource/smart   
