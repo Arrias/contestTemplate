@@ -3,7 +3,9 @@
 mkdir -p _stressSource
 
 echo "Compiling smart..." 
-g++ smart.cpp -o _stressSource/smart 
+g++ smart.cpp -o _stressSource/smart
+echo "Compiling stupid..."
+g++ stupid.cpp -o _stressSource/stupid
 echo "Compiling checker..." 
 g++ checker.cpp -o _stressSource/checker 
 echo "Compiling gen..." 
@@ -18,9 +20,11 @@ for ((;;)) do
   cat temp.txt
   echo ""
   smartRes=`./smart < temp.txt`
+  stupidRes=`./stupid < temp.txt`
   echo "$smartRes" >> temp.txt
+  echo "$stupidRes" >> temp.txt
   checkRes=`./checker < temp.txt` 
-  echo -e "Smart res:\n$smartRes\nCheck res:\n$checkRes\n"  
+  echo -e "Smart res:\n$smartRes\nStupid res:\n$stupidRes\nCheck res:\n$checkRes\n"
   if [ "$checkRes" != "1" ]; then 
       break 
   fi 
