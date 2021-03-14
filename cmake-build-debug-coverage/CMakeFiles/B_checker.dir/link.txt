@@ -1,0 +1,1 @@
+/usr/bin/c++  --coverage -g   CMakeFiles/B_checker.dir/B/checker.cpp.o  -o B_checker 

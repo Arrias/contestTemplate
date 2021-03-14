@@ -1,0 +1,1 @@
+/usr/bin/c++  --coverage -g   CMakeFiles/E_stupid.dir/E/stupid.cpp.o  -o E_stupid 

@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
+#include "../lib/gen/gen_functions.h"
 
 #define sz(a) (int) a.size()
 #define all(a) a.begin(), a.end()
@@ -13,14 +14,9 @@ typedef pair<int, int> pii;
 
 mt19937_64 rnd(std::chrono::system_clock::now().time_since_epoch().count());
 
-void solve() {
-
-}
-
 int main() {
     ios::sync_with_stdio(false), cin.tie(nullptr);
     cout.setf(ios::fixed), cout.precision(10);
-
 
     return 0;
 }

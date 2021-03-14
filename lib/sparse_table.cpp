@@ -2,15 +2,17 @@
 // Created by arrias on 26.12.2020.
 //
 
-template <typename T, class F = function<T(const T &, const T &)>>
+template<typename T, class F = function < T(const T &, const T &)>>
+
 class SparseTable {
 public:
     int n, l;
-    vector<vector<T>> mat;
-    vector<T> data;
+    vector <vector<T>> mat;
+    vector <T> data;
     vector<int> logs;
     F func;
-    SparseTable(const vector<T> &a, const F &f) : func(f), data(a) {
+
+    SparseTable(const vector <T> &a, const F &f) : func(f), data(a) {
         n = sz(a);
         l = 25; // max_log
         logs.resize(n + 2);
@@ -26,12 +28,14 @@ public:
             }
         }
     }
+
     int getId(int l, int r) {
         int c = logs[r - l + 1];
         r++;
         T val = func(data[mat[c][l]], data[mat[c][r - (1 << c)]]);
         return ((val == data[mat[c][l]]) ? mat[c][l] : mat[c][r - (1 << c)]);
     }
+
     T getVal(int l, int r) {
         return data[getId(l, r)];
     }

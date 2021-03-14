@@ -7,7 +7,7 @@ g++ smart.cpp -o _stressSource/smart
 echo "Compiling stupid..."  
 g++ stupid.cpp -o _stressSource/stupid  
 echo "Compiling gen..."  
-g++ gen.cpp -o _stressSource/gen  
+g++ gen.cpp ../lib/gen/gen_functions.cpp -o _stressSource/gen
 
 cd _stressSource  
 

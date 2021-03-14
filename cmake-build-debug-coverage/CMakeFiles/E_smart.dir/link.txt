@@ -1,0 +1,1 @@
+/usr/bin/c++  --coverage -g   CMakeFiles/E_smart.dir/E/smart.cpp.o  -o E_smart 

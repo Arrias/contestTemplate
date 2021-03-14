@@ -1,0 +1,1 @@
+/usr/bin/c++  --coverage -g   CMakeFiles/B_gen.dir/B/gen.cpp.o CMakeFiles/B_gen.dir/lib/gen/gen_functions.cpp.o  -o B_gen 

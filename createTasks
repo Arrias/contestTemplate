@@ -42,7 +42,7 @@ for i in $s; do
   cp ../src/timecheck "../$i"
   cd ..
   echo "add_executable(${i}_smart $i/smart.cpp)" >> CMakeLists.txt
-  echo "add_executable(${i}_gen $i/gen.cpp)" >> CMakeLists.txt
+  echo "add_executable(${i}_gen $i/gen.cpp lib/gen/gen_functions.cpp lib/gen/gen_functions.h)" >> CMakeLists.txt
   echo "add_executable(${i}_stupid $i/stupid.cpp)" >> CMakeLists.txt
   echo "add_executable(${i}_checker $i/checker.cpp)" >> CMakeLists.txt
 
